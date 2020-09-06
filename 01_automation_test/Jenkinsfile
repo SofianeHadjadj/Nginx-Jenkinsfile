@@ -4,13 +4,13 @@ pipeline {
       
     stage('Build image') {
         steps {
-            sh "docker build -t nginx-server:${BUILD_NUMBER} 01_automation_test/Dockerfile"
+            sh "docker build -t nginx-server:22 01_automation_test/Dockerfile"
         }
     }
     
     stage('Run server') {
         steps {
-            sh "docker run -d -p 80:80 nginx-server:${BUILD_NUMBER}"
+            sh "docker run -d -p 80:80 nginx-server:22"
         }
     }
   }
